@@ -197,6 +197,7 @@ initReact({
       student={camelizeKeysAs<MentoringSessionStudent>(data.student)}
       iterations={camelizeKeysAs<MentoringSessionIteration[]>(data.iterations)}
       links={data.links}
+      userId={data.user_id}
     />
   ),
   'concept-map': (data: any) => {
