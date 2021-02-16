@@ -111,7 +111,7 @@ import { Iteration } from '../components/track/IterationSummary'
 import { ExerciseInstructions, Submission } from '../components/editor/types'
 import {
   Iteration as MentoringSessionIteration,
-  Student as MentoringSessionStudent,
+  Partner as MentoringSessionPartner,
   Track as MentoringSessionTrack,
   Exercise as MentoringSessionExercise,
   Links as MentoringSessionLinks,
@@ -168,7 +168,7 @@ initReact({
       mentorSolution={camelizeKeysAs<MentoringSessionMentorSolution>(
         data.mentor_solution
       )}
-      student={camelizeKeysAs<MentoringSessionStudent>(data.student)}
+      partner={camelizeKeysAs<MentoringSessionPartner>(data.partner)}
       track={camelizeKeysAs<MentoringSessionTrack>(data.track)}
       exercise={camelizeKeysAs<MentoringSessionExercise>(data.exercise)}
       iterations={camelizeKeysAs<MentoringSessionIteration[]>(data.iterations)}
@@ -194,7 +194,7 @@ initReact({
     <Student.MentoringSession
       id={data.id}
       isFinished={data.is_finished}
-      student={camelizeKeysAs<MentoringSessionStudent>(data.student)}
+      student={camelizeKeysAs<MentoringSessionPartner>(data.student)}
       iterations={camelizeKeysAs<MentoringSessionIteration[]>(data.iterations)}
       track={camelizeKeysAs<MentoringSessionTrack>(data.track)}
       links={data.links}
