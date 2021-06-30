@@ -36,9 +36,7 @@ class FixFilePaths < ActiveRecord::Migration[6.1]
       
       next if file.filename == sanitized_file
 
-      attrs = file.attributes
-      attrs[:filename] = sanitized_file
-      files_to_upsert << attrs
+      files_to_upsert << file.attributes.symbolize_keys.merge(filename: sanitized_file)
     end
 
     Submission::File.upsert_all(files_to_upsert)
