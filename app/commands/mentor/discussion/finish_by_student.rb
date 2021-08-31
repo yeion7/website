@@ -29,6 +29,7 @@ module Mentor
         report!
         block!
         create_testimonial!
+        notify!
       end
 
       def requeue!
@@ -68,6 +69,14 @@ module Mentor
           student: discussion.student,
           discussion: discussion,
           content: testimonial
+        )
+      end
+
+      def notify!
+        User::Notification::Create.(
+          discussion.mentor,
+          :student_finished_discussion,
+          { discussion: discussion }
         )
       end
 
