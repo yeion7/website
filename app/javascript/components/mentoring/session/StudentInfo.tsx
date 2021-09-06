@@ -1,6 +1,6 @@
 import React from 'react'
 import { Student } from '../../types'
-import { Avatar, Reputation } from '../../common'
+import { Avatar, Reputation, GraphicalIcon } from '../../common'
 import { FavoritableStudent, FavoriteButton } from './FavoriteButton'
 import { PreviousSessionsLink } from './PreviousSessionsLink'
 
@@ -24,13 +24,25 @@ export const StudentInfo = ({
           />
         </div>
         <div className="name">{student.name}</div>
-        <div className="bio">{student.bio}</div>
+        {/*<div className="bio">{student.bio}</div>*/}
         <div className="options">
           {student.links ? (
             <StudentInfoActions student={student} setStudent={setStudent} />
           ) : null}
           <PreviousSessionsLink student={student} setStudent={setStudent} />
         </div>
+        {student.trackObjectives ? (
+          <details className="track-objectives c-details">
+            <summary>
+              <div className="--summary-inner">
+                Explore {student.handle}'s track goal(s)
+                <GraphicalIcon icon="chevron-right" className="--closed-icon" />
+                <GraphicalIcon icon="chevron-down" className="--open-icon" />
+              </div>
+            </summary>
+            <p>{student.trackObjectives}</p>
+          </details>
+        ) : null}
       </div>
       <Avatar src={student.avatarUrl} handle={student.handle} />
     </div>
